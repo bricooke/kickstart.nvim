@@ -230,6 +230,12 @@ require('lazy').setup({
     { 'ervandew/ag' },
     { 'wellle/context.vim' },
     { 'stevearc/aerial.nvim' },
+
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    },
     -- next plugin
     --
     -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -393,7 +399,8 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
     require('nvim-treesitter.configs').setup {
         -- Add languages to be installed here that you want installed for treesitter
-        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc',
+            'vim', 'bash' },
 
         -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
         auto_install = false,
@@ -533,7 +540,7 @@ local servers = {
     -- pyright = {},
     rust_analyzer = {},
     tsserver = {},
-    html = { filetypes = { 'html', 'twig', 'hbs'} },
+    html = { filetypes = { 'html', 'twig', 'hbs' } },
     dockerls = {},
     docker_compose_language_service = {},
     golangci_lint_ls = {},
@@ -655,6 +662,15 @@ vim.keymap.set('n', '<leader>hh', require("harpoon.ui").toggle_quick_menu, {})
 vim.keymap.set('n', '<leader>ha', require("harpoon.mark").add_file, {})
 vim.keymap.set('n', '<leader>hp', require("harpoon.ui").nav_prev, {})
 vim.keymap.set('n', '<leader>hn', require("harpoon.ui").nav_next, {})
+vim.keymap.set('n', '<leader>h1', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', {})
+vim.keymap.set('n', '<leader>h2', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', {})
+vim.keymap.set('n', '<leader>h3', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', {})
+vim.keymap.set('n', '<leader>h4', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>', {})
+vim.keymap.set('n', '<leader>h5', '<cmd>lua require("harpoon.ui").nav_file(5)<CR>', {})
+vim.keymap.set('n', '<leader>h6', '<cmd>lua require("harpoon.ui").nav_file(6)<CR>', {})
+vim.keymap.set('n', '<leader>h7', '<cmd>lua require("harpoon.ui").nav_file(7)<CR>', {})
+vim.keymap.set('n', '<leader>h8', '<cmd>lua require("harpoon.ui").nav_file(8)<CR>', {})
+vim.keymap.set('n', '<leader>h9', '<cmd>lua require("harpoon.ui").nav_file(9)<CR>', {})
 
 -- Terminal tests
 vim.keymap.set('n', '<leader>rut', ":Dispatch rut<CR>", {})
